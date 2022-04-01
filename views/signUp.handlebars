@@ -1,38 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="logout">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <h1>The Tech Blog</h1>
-</nav>
-<main class="form-signin">
-  <form>
-    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-    <div class="form-floating">
-    <div class="form-floating">
-      <input type="text" class="form-control" id="usernameField" placeholder="Degen">
-      <label for="usernameField">Username</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="passwordField" placeholder="Password">
-      <label for="passwordField">Password</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" id="signupBtn">Sign up</button>
-    <a class="nav-link active" aria-current="page" href="/login">Login instead</a>
-  </form>
-</main>
-
+<div class="container d-flex">
+    <form class=" container inputContainer justify-content-center" id="signupBtn">
+      <h1 class="h3 mb-3 mt-5 fw-normal text-center">Please sign up</h1>
+      <div class="form-floating input">
+        <input type="text" class="form-control" id="usernameField" placeholder="Username">
+        <label for="usernameField">Username</label>
+      </div>
+      <div class="form-floating input">
+            <input type="password" class="form-control" id="passwordField" placeholder="Password">
+            <label for="passwordField">Password</label>
+        </div>
+      <button type="submit" class="btn btn-primary d-grid col-2 mx-auto">Sign Up</button>
+    </form>
+</div>

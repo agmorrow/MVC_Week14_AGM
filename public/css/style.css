@@ -1,0 +1,196 @@
+:root {
+  --headerFont: 'Nunito Sans', sans-serif;
+  --bodyFont:  'Quicksand', sans-serif;
+  --primarycolor: #e9e9e9;
+  --secondarycolor: #0073aa;
+  --boldcolor: #23282c;
+  --tertiarycolor: #9aa1a8;
+}
+
+body {
+  
+  font-family: var(--headerFont);
+ 
+}
+
+.navbar {
+  background-color: var(--boldcolor);
+  display: flex;
+  flex-direction: row;
+}
+
+.nav {
+  justify-content: flex-start;
+}
+
+.nav-link {
+  color: var(--primarycolor);
+  margin-right: 20px;
+  font-size: 24px;
+  background-color: var(--boldcolor);
+}
+
+.nav-link:hover {
+  color: var(--secondarycolor)
+}
+
+
+#Title {
+  font-family: var(--headerFont);
+  color: #e9e9e9;
+  background-color: var(--primaryColor);
+  font-size: 45px;
+  margin-left: 50px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.input {
+  color: var(--boldcolor);
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+
+
+#welcomeId {
+  font-weight: bolder;
+  font-size: 65px;
+  color: #e9e9e9;
+  text-align: center;
+  padding-top: 4%;
+  font-family: var(--headerFont);
+
+}
+
+#welcomeMsg {
+  font-size: 24px;
+  font-family: var(--bodyFont);
+  text-align: center;
+  color: #e9e9e9;
+ padding-left: 20%;
+ padding-right: 20%;
+}
+
+.welcomeBox {
+  background-color: var(--secondarycolor);
+  height: 45%;
+}
+
+.welcomeHeader, .createPostHeader {
+  color: var(--secondarycolor);
+  font-family: var(--headerFont);
+  font-size: 40px;
+  text-align: center;
+  margin: 10px;
+}
+
+.createPostHeader {
+  font-size: 20px;
+  font-family: var(--bodyFont);
+}
+
+.postCard {
+  background-color: var(--tertiarycolor);
+  color: var(--boldcolor);
+  font-family: var(--bodyFont);
+  flex-direction: column;
+  border: solid 1px var(--primarycolor);
+  border-radius: 5px;
+  margin: 10;
+  padding: 0;
+}
+
+.card-header {
+  font-size: 24px;
+  text-align: center;
+  font-family: var(--headerFont);
+  background-color: var(--boldcolor);
+  color: var(--secondarycolor);
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.card-text {
+  font-size: 20px;
+}
+
+.form-label {
+  background-color: var(--boldcolor);
+  color: var(--secondarycolor);
+}
+
+.addComment {
+  background-color: var(--tertiarycolor);
+}
+
+.comments {
+  text-align: center;
+  background-color: var(--boldcolor);
+}
+
+
+
+.postBtns {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.postTitle {
+  color: var(--secondarycolor);
+  text-align: center;
+}
+
+.postContent, .commentText {
+  color: var(--boldcolor)
+}
+
+.btn {
+  background-color: var(--secondarycolor);
+  border-color: var(--tertiarycolor); 
+  color: var(--primarycolor);
+  font-family: var(--headerFont);
+  font-size: 20px;
+  width: 200px;
+}
+
+.btn:hover {
+  background-color: #0689c5;
+  border-color: var(--secondarycolor);
+}
+
+@media screen and (max-width: 991px) {
+  #Title {
+      margin: 0 auto;
+  }
+
+  .navbar {
+      flex-direction: column;
+  }
+  .nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 0;
+  }
+  .nav-link {
+      font-size: 20px;
+      text-align: center;
+     
+  }
+  .input {
+      width: 75%;
+  }
+ .createPostHeader, .comments {
+  margin: 10px;
+}
+}

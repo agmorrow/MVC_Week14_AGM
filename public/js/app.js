@@ -14,6 +14,7 @@ $(document).ready(function () {
 	
 	signupBtn.on('submit', async function (event) {
 		event.preventDefault();
+		debugger
 		try {
 		await $.post('/api/users/signup', {
 			username: usernameField.val(),

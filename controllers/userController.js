@@ -58,6 +58,7 @@ module.exports = {
 						success: true
 					});
 				});
+			
 			} else {
 				res.status(400).json(e);
 			}
@@ -66,17 +67,20 @@ module.exports = {
 		}
 	},
 	signupHandler: async (req, res) => {
-		const {	 username, password } = req.body;
+		console.log('hit signupHandler');
+		const {	username, password } = req.body;
+		console.log( username, password );
 		try {
 			const createdUser = await User.create({
 				username,
 				password,
 			});
 			const user = createdUser.get({ plain: true });
+			console.log(user);
 			req.session.save(() => {
 				req.session.loggedIn = true;
-				req.session.user = user.username;
-				req.session.user_id = user.id;
+				req.session.user = user;
+				// req.session.user_id = user.id;
 				res.redirect('/dashboard');
 			});
 		} catch (e) {
@@ -85,12 +89,15 @@ module.exports = {
 	},
 	loginView: (req, res) => {
 		if (req.session.loggedIn) {
+			console.log('entered if blog login view');
 			return res.redirect('/dashboard');
 		}
 		res.render('login');
 	},
 	signupView: (req, res) => {
+		console.log('hit signup view')
 		if (req.session.loggedIn) {
+			console.log('entered if blog sign up view');
 			return res.redirect('/dashboard');
 		}
 		res.render('signUp');

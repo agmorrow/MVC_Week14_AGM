@@ -3,12 +3,12 @@ module.exports = {
 	createComment: async (req, res) => {
 		const { text, blog_id } = req.body;
 		try {
-			const newComment = await Comment.create({
+			const commentData = await Comment.create({
 				text,
 				user_id: req.session.user_id,
                 blog_id
 			});
-			res.json({ newComment });
+			res.json({ commentData });
 		} catch (e) {
 			res.json(e);
 		}

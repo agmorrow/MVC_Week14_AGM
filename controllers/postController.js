@@ -7,7 +7,7 @@ module.exports = {
     }
 
     try {
-      const userPostData = await Post.findAll({
+      const postData = await Post.findAll({
         where: {
           userId: req.session.user.id,
         },
@@ -18,7 +18,7 @@ module.exports = {
           model: Comment,
         }]
       });
-      const posts = userPostData.map(userPost => userPost.get({ plain: true }));
+      const posts = postData.map(userPost => userPost.get({ plain: true }));
 
      
         res.render('dashboard', {
@@ -35,12 +35,12 @@ module.exports = {
     const { title, content } = req.body;
 
     try {
-      const newPost = await Post.create({
+      const postData = await Post.create({
         title,
         content,
         userId: req.session.user.id,
       });
-      res.json({ newPost });
+      res.json({ postData });
     } catch (e) {
       res.json(e);
     }

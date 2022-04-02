@@ -1,20 +1,18 @@
 :root {
-  --headerFont: 'Nunito Sans', sans-serif;
-  --bodyFont:  'Quicksand', sans-serif;
-  --primarycolor: #e9e9e9;
-  --secondarycolor: #0073aa;
-  --boldcolor: #23282c;
-  --tertiarycolor: #9aa1a8;
+  --light: #e9e9e9;
+  --blue: #0073aa;
+  --dark: #23282c;
+  --gray: #9aa1a8;
 }
 
 body {
   
-  font-family: var(--headerFont);
+  font-family: 'Nunito Sans', sans-serif;
  
 }
 
 .navbar {
-  background-color: var(--boldcolor);
+  background-color: var(--dark);
   display: flex;
   flex-direction: row;
 }
@@ -24,21 +22,21 @@ body {
 }
 
 .nav-link {
-  color: var(--primarycolor);
+  color: var(--light);
   margin-right: 20px;
   font-size: 24px;
-  background-color: var(--boldcolor);
+  background-color: var(--dark);
 }
 
 .nav-link:hover {
-  color: var(--secondarycolor)
+  color: var(--blue)
 }
 
 
 #Title {
-  font-family: var(--headerFont);
+  font-family: 'Nunito Sans', sans-serif;
   color: #e9e9e9;
-  background-color: var(--primaryColor);
+  
   font-size: 45px;
   margin-left: 50px;
 }
@@ -52,7 +50,7 @@ body {
 }
 
 .input {
-  color: var(--boldcolor);
+  color: var(--dark);
   width: 50%;
   margin-bottom: 10px;
 }
@@ -65,13 +63,13 @@ body {
   color: #e9e9e9;
   text-align: center;
   padding-top: 4%;
-  font-family: var(--headerFont);
+  font-family: 'Nunito Sans', sans-serif;
 
 }
 
 #welcomeMsg {
   font-size: 24px;
-  font-family: var(--bodyFont);
+  font-family: 'Quicksand', sans-serif;
   text-align: center;
   color: #e9e9e9;
  padding-left: 20%;
@@ -79,13 +77,13 @@ body {
 }
 
 .welcomeBox {
-  background-color: var(--secondarycolor);
+  background-color: var(--blue);
   height: 45%;
 }
 
 .welcomeHeader, .createPostHeader {
-  color: var(--secondarycolor);
-  font-family: var(--headerFont);
+  color: var(--blue);
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 40px;
   text-align: center;
   margin: 10px;
@@ -93,15 +91,15 @@ body {
 
 .createPostHeader {
   font-size: 20px;
-  font-family: var(--bodyFont);
+  font-family: 'Quicksand', sans-serif;
 }
 
 .postCard {
-  background-color: var(--tertiarycolor);
-  color: var(--boldcolor);
-  font-family: var(--bodyFont);
+  background-color: var(--gray);
+  color: var(--dark);
+  font-family: 'Quicksand', sans-serif;
   flex-direction: column;
-  border: solid 1px var(--primarycolor);
+  border: solid 1px var(--light);
   border-radius: 5px;
   margin: 10;
   padding: 0;
@@ -110,9 +108,9 @@ body {
 .card-header {
   font-size: 24px;
   text-align: center;
-  font-family: var(--headerFont);
-  background-color: var(--boldcolor);
-  color: var(--secondarycolor);
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--dark);
+  color: var(--blue);
 }
 
 .card-title {
@@ -124,17 +122,17 @@ body {
 }
 
 .form-label {
-  background-color: var(--boldcolor);
-  color: var(--secondarycolor);
+  background-color: var(--dark);
+  color: var(--blue);
 }
 
 .addComment {
-  background-color: var(--tertiarycolor);
+  background-color: var(--gray);
 }
 
 .comments {
   text-align: center;
-  background-color: var(--boldcolor);
+  background-color: var(--dark);
 }
 
 
@@ -146,26 +144,26 @@ body {
 }
 
 .postTitle {
-  color: var(--secondarycolor);
+  color: var(--blue);
   text-align: center;
 }
 
 .postContent, .commentText {
-  color: var(--boldcolor)
+  color: var(--dark)
 }
 
 .btn {
-  background-color: var(--secondarycolor);
-  border-color: var(--tertiarycolor); 
-  color: var(--primarycolor);
-  font-family: var(--headerFont);
+  background-color: var(--blue);
+  border-color: var(--gray); 
+  color: var(--light);
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 20px;
   width: 200px;
 }
 
 .btn:hover {
   background-color: #0689c5;
-  border-color: var(--secondarycolor);
+  border-color: var(--blue);
 }
 
 @media screen and (max-width: 991px) {

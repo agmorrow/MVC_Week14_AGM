@@ -25,7 +25,8 @@ module.exports = {
 			const userPostData = await Post.findAll({
 				include: [{
 					model: User,
-				},{
+				},
+				{
 					model: Comment,
 				}]
 			});

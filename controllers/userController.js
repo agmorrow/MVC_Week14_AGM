@@ -1,8 +1,5 @@
-const {
-	User,
-	Post,
-	Comment
-} = require('../models');
+const { User, Post, Comment } = require('../models');
+
 module.exports = {
 	createUser: async (req, res) => {
 		const { username, password } = req.body;
@@ -52,11 +49,8 @@ module.exports = {
 			if (userFound.password === req.body.password) {
 				req.session.save(() => {
 					req.session.loggedIn = true;
-					req.session.user = userFound.username;
-					req.session.user_id = userFound.id;
-					res.json({
-						success: true
-					});
+					req.session.user = userFound;
+					res.json({ success: true });
 				});
 			
 			} else {
@@ -80,7 +74,6 @@ module.exports = {
 			req.session.save(() => {
 				req.session.loggedIn = true;
 				req.session.user = user;
-				// req.session.user_id = user.id;
 				res.redirect('/dashboard');
 			});
 		} catch (e) {

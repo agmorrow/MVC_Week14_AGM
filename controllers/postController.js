@@ -33,7 +33,6 @@ module.exports = {
 
   createPost: async (req, res) => {
     const { title, content } = req.body;
-
     try {
       const postData = await Post.create({
         title,

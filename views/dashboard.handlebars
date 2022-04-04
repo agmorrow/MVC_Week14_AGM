@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="welcomeHeader">Welcome {{user}}</div>
+  <div class="welcomeHeader">Welcome {{user.username}}!</div>
   <div class="createPostHeader">New Post</div>
   <div class="card-body">
     <form>
@@ -24,7 +24,7 @@
           {{post.title}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">Created By: {{post.user.username}}</h5>
+          <h5 class="card-title">Created By: {{post.user.user}}</h5>
           <p class="card-text">{{post.content}}</p>
           <a href="#" class="btn viewPostBtn" id="viewPostBtn" data-id={{post.id}}>View Post</a>
         </div>

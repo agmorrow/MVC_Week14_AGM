@@ -122,8 +122,7 @@ body {
 }
 
 .form-label {
-  background-color: var(--dark);
-  color: var(--blue);
+  color: var(--dark);
 }
 
 .addComment {

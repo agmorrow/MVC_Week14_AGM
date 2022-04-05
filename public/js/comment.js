@@ -10,7 +10,9 @@ async function commentSection() {
         comment_text,
         post_id
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
     if (response.ok) {
       document.location.reload();

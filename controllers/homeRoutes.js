@@ -1,25 +1,29 @@
-const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const {
+  Post,
+  User,
+  Comment
+} = require('../models');
+const auth = require('../utils/auth');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: [
-      'id',
-      'title',
-      'comment',
-      'created_at',
-      'user_id'
-    ],
-    include: [
-      {
+      attributes: [
+        'id',
+        'title',
+        'comment',
+        'created_at',
+        'user_id'
+      ],
+      include: [{
         model: User,
         attributes: ['username']
-      }
-    ]
-  })
+      }]
+    })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+      const posts = dbPostData.map(post => post.get({
+        plain: true
+      }));
       res.render('home', {
         posts
       });
@@ -43,20 +47,22 @@ router.get('/signup', (req, res) => {
   res.render('signup')
 });
 
-router.get('/dashboard', withAuth, (req, res) => {
+router.get('/dashboard', auth, (req, res) => {
 
   Post.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
-    attributes: [
-      'id',
-      'title',
+      where: {
+        user_id: req.session.user_id
+      },
+      attributes: [
+        'id',
+        'title',
 
-    ]
-  })
+      ]
+    })
     .then(dbPostData => {
-      const title = dbPostData.map(post => post.get({ plain: true }));
+      const title = dbPostData.map(post => post.get({
+        plain: true
+      }));
       res.render('dashboard', {
         title
       });
@@ -67,15 +73,17 @@ router.get('/dashboard', withAuth, (req, res) => {
     });
 });
 
-router.get('/dashboard/post-update/:id', withAuth, (req, res) => {
+router.get('/dashboard/post-update/:id', auth, (req, res) => {
   Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: ['title', 'comment']
-  })
+      where: {
+        id: req.params.id
+      },
+      attributes: ['title', 'comment']
+    })
     .then(dbPostData => {
-      const upPost = dbPostData.get({ plain: true });
+      const upPost = dbPostData.get({
+        plain: true
+      });
       res.render('updatePost', {
         upPost
       });
@@ -87,43 +95,46 @@ router.get('/dashboard/post-update/:id', withAuth, (req, res) => {
     })
 })
 
-router.get('/dashboard/create', withAuth, (req, res) => {
+router.get('/dashboard/create', auth, (req, res) => {
   res.render('addPost')
 });
 
 
-router.get('/post/:id', withAuth, (req, res) => {
+router.get('/post/:id', auth, (req, res) => {
   Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'title',
-      'comment',
-      'created_at'
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['username']
+      where: {
+        id: req.params.id
       },
-      {
-        model: Comment,
-        attributes: ['comment_text', 'created_at'],
-        include: {
+      attributes: [
+        'id',
+        'title',
+        'comment',
+        'created_at'
+      ],
+      include: [{
           model: User,
           attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['comment_text', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
         }
-      }
-    ]
-  })
+      ]
+    })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No Post Found!' });
+        res.status(404).json({
+          message: 'No Post Found!'
+        });
         return;
       }
-      const info = dbPostData.get({ plain: true });
+      const info = dbPostData.get({
+        plain: true
+      });
       res.render('singlePost', {
         info,
         loggedIn: req.session.loggedIn

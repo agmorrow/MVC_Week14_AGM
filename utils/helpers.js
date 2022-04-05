@@ -1,4 +1,6 @@
 module.exports = {
+  toUpperCase: string => string.toUpperCase(),
+  toLowerCase: string => string.toLowerCase(),
   format_date: date => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
       date
@@ -20,13 +22,3 @@ module.exports = {
     return word;
   }
 };
-
-
-
-// const moment = require("moment");
-
-// module.exports = {
-// 	toUpperCase: string => string.toUpperCase(),
-// 	toLowerCase: string => string.toLowerCase(),
-// 	format_date: string => moment(string, "lll").format("L")
-// }

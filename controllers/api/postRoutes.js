@@ -1,38 +1,40 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const {
+  Post,
+  User,
+  Comment
+} = require('../../models');
 
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: [
-      'id',
-      'title',
-      'comment',
-      'user_id'
+      attributes: [
+        'id',
+        'title',
+        'comment',
+        'user_id'
 
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['username']
-      },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'user_id', 'post_id'],
-        include: [
-          {
-            model: User,
-            attributes: ['username']
-          },
-          {
-            model: Post,
-            attributes: ['title', 'comment']
-          }
-        ]
-      },
+      ],
+      include: [{
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'user_id', 'post_id'],
+          include: [{
+              model: User,
+              attributes: ['username']
+            },
+            {
+              model: Post,
+              attributes: ['title', 'comment']
+            }
+          ]
+        },
 
-    ]
+      ]
 
-  })
+    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
@@ -42,40 +44,40 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'title',
-      'comment',
-      'user_id'
-    ],
-    include: [
-      {
-        model: User,
-        attributes: ['username']
+      where: {
+        id: req.params.id
       },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'user_id', 'post_id'],
-        include: [
-          {
-            model: User,
-            attributes: ['username']
-          },
-          {
-            model: Post,
-            attributes: ['title', 'comment']
-          }
-        ]
-      },
+      attributes: [
+        'id',
+        'title',
+        'comment',
+        'user_id'
+      ],
+      include: [{
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'user_id', 'post_id'],
+          include: [{
+              model: User,
+              attributes: ['username']
+            },
+            {
+              model: Post,
+              attributes: ['title', 'comment']
+            }
+          ]
+        },
 
-    ]
-  })
+      ]
+    })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No Post found with this id' });
+        res.status(404).json({
+          message: 'No Post found with this id'
+        });
         return;
       }
       res.json(dbPostData);
@@ -88,10 +90,10 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Post.create({
-    title: req.body.title,
-    comment: req.body.comment,
-    user_id: req.session.user_id
-  })
+      title: req.body.title,
+      comment: req.body.comment,
+      user_id: req.session.user_id
+    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
@@ -100,20 +102,19 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Post.update(
-    {
+  Post.update({
       title: req.body.title,
       comment: req.body.comment
-    },
-    {
+    }, {
       where: {
         id: req.params.id
       }
-    }
-  )
+    })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No Post found with this id' });
+        res.status(404).json({
+          message: 'No Post found with this id'
+        });
         return;
       }
       res.json(dbPostData);
@@ -126,13 +127,15 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Post.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
+      where: {
+        id: req.params.id
+      }
+    })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No Post found with id' });
+        res.status(404).json({
+          message: 'No Post found with id'
+        });
         return;
       }
       res.json(dbPostData);

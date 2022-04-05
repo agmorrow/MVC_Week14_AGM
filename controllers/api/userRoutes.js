@@ -1,15 +1,19 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const {
+  User,
+  Post,
+  Comment
+} = require('../../models');
 
 router.get('/', (req, res) => {
   User.findAll({
-    attributes: [
-      'id',
-      'username',
-      'password',
+      attributes: [
+        'id',
+        'username',
+        'password',
 
-    ]
-  })
+      ]
+    })
     .then(dbData => res.json(dbData))
     .catch(err => {
       console.log(err);
@@ -19,23 +23,24 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findOne({
-    where: {
-      id: req.params.id
-    },
-    include: [
-      {
-        model: Post,
-        attributes: ['id', 'title', 'comment', 'user_id']
+      where: {
+        id: req.params.id
       },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'user_id', 'post_id']
-      }
-    ]
-  })
+      include: [{
+          model: Post,
+          attributes: ['id', 'title', 'comment', 'user_id']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'user_id', 'post_id']
+        }
+      ]
+    })
     .then(dbData => {
       if (!dbData) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({
+          message: 'No user found with this id'
+        });
         return;
       }
       res.json(dbData);
@@ -53,14 +58,18 @@ router.post('/login', (req, res) => {
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({
+        message: 'No user with that email address!'
+      });
       return;
     }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
+      res.status(400).json({
+        message: 'Incorrect password!'
+      });
       return;
     }
 
@@ -68,7 +77,10 @@ router.post('/login', (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.json({
+        user: dbUserData,
+        message: 'You are now logged in!'
+      });
     });
   });
 });
@@ -80,9 +92,9 @@ router.post('/logout', (req, res) => {
 
 router.post('/', (req, res) => {
   User.create({
-    username: req.body.username,
-    password: req.body.password
-  })
+      username: req.body.username,
+      password: req.body.password
+    })
     .then(dbUserData => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;

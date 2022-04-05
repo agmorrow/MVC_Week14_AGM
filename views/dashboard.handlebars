@@ -1,23 +1,14 @@
 <section>
-   <div class="welcomeHeader">Welcome {{user.username}}!</div>
-    <div class="list-title">
-        <h2>List of Posts</h2>
-    </div>
-    
-
-        {{#each title}}
-        <div class="post-list">
-            <h4> <a href="/dashboard/post-update/{{id}}">{{title}}</a></h4>
-        </div>
-        {{/each}}
-    
-
-
-    <div class="post-button">
-        <a href="/dashboard/create" id="addPost" class="btn add-post">+ Add Post</a>
-    </div>
+  <div class="welcomeHeader">Welcome!</div>
+  <div class="list-title">
+    <h2>List of Posts</h2>
+  </div>
+  {{#each title}}
+  <div class="post-list">
+    <h4> <a href="/dashboard/post-update/{{id}}">{{title}}</a></h4>
+  </div>
+  {{/each}}
+  <div class="post-button">
+    <a href="/dashboard/create" id="addPost" class="btn add-post">+ Add Post</a>
+  </div>
 </section>
-
-
-
-

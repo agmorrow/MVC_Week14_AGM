@@ -1,49 +1,43 @@
 <section>
-    <div class="blog-card">
-        <div class="title-content">
-            <div class="title">
-                <h3>{{info.title}}</h3>
-            </div>
-            <div class="user-date">
-                <p>Posted by {{info.user.username}},{{format_date info.created_at}}</p>
-            </div>
-
-        </div>
-        <div class="content">
-            <p class="content-text">{{info.comment}}</p>
-        </div>
+  <div class="blog-card">
+    <div class="title-content">
+      <div class="title">
+        <h3>{{info.title}}</h3>
+      </div>
+      <div class="user-date">
+        <p>Posted by {{info.user.username}} on {{format_date info.created_at}}</p>
+      </div>
     </div>
+    <div class="content">
+      <p class="content-text">{{info.comment}}</p>
+    </div>
+  </div>
 </section>
 {{#each info.comments}}
 <section>
-    <div class="blog-card">
-
-        <div class="title-content">
-            <div class="title">
-
-                <p> {{user.username}} says..</p>
-
-            </div>
-
-        </div>
-        <div class="content">
-            <p> {{comment_text}} </br>
-                {{ created_at}}</p>
-        </div>
+  <div class="blog-card">
+    <div class="title-content">
+      <div class="title">
+        <p> {{user.username}} says..</p>
+      </div>
     </div>
+    <div class="content">
+      <p> {{comment_text}} </br>
+        {{ created_at}}</p>
     </div>
+  </div>
+  </div>
 </section>
 {{/each}}
 {{!-- comments section --}}
 <div class="createPostHeader">Comment</div>
-  <div class="card-body">
-    <form>
-      <div class="mb-3">
-        <textarea type="text" class="form-control" id="commentField"></textarea>
-      </div>
-      
-      <button type="submit" class="btn d-grid col-2 mx-auto" id="addCommentBtn">Add Comment</button>
-    </form>
-  </div>
+<div class="card-body">
+  <form>
+    <div class="mb-3">
+      <textarea type="text" class="form-control" id="commentField"></textarea>
+    </div>
+    <button type="submit" class="btn d-grid col-2 mx-auto" id="addCommentBtn">Add Comment</button>
+  </form>
+</div>
 </div>
 <script src="/js/comment.js"></script>

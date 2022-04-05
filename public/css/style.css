@@ -54,8 +54,6 @@ body {
   margin-bottom: 10px;
 }
 
-
-
 #welcomeId {
   font-weight: bolder;
   font-size: 65px;
@@ -93,7 +91,6 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-
 .btn {
   background-color: var(--blue);
   border-color: var(--gray); 
@@ -112,22 +109,11 @@ body {
   color: var(--blue) !important;
 }
 
-
 .notice{
   margin-right: 20px;
   width: 220px;
   background-color: var(--blue);
 }
-
-
-.dash-btn{
-  background-color: var(--secondary);
-  color: var(--primary);
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
 
 .input-box{
   padding: 1em;
@@ -186,34 +172,12 @@ body {
   border-radius: 8px;
 }
 
-.card {
-  border-radius: 8px;
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 1em;
-  box-shadow: 2px 3px 3px gray; 
-}
-
-.card .title{
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--secondary);
-  color: var(--primary);
-  padding: .5em; 
-}
-
 .input-box textarea{
   resize: none;
   height: 100px;
   font-family: sans-serif;
   border: 2px solid black;
   outline: none;
-}
-
-.dashboard-card{
-  display: flex;
-  flex-flow: column;
-  justify-content:flex-end;
 }
 
 .post-button,.add-post{
@@ -240,8 +204,6 @@ body {
   text-decoration: none;
   box-shadow: 2px 3px 3px gray;
 }
-
-
 
 .post-list, a {
   color: var(--light);

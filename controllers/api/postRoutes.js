@@ -104,7 +104,6 @@ router.put('/:id', (req, res) => {
     {
       title: req.body.title,
       comment: req.body.comment
-
     },
     {
       where: {

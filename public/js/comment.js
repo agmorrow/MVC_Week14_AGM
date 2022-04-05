@@ -21,4 +21,4 @@ async function commentSection() {
 
 };
 
-document.querySelector('#submitBtn').addEventListener('click', commentSection);
+document.querySelector('#addCommentBtn').addEventListener('click', commentSection);

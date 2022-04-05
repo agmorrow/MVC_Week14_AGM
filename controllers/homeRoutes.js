@@ -76,7 +76,7 @@ router.get('/dashboard/post-update/:id', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const upPost = dbPostData.get({ plain: true });
-      res.render('update-post', {
+      res.render('updatePost', {
         upPost
       });
     })
@@ -88,7 +88,7 @@ router.get('/dashboard/post-update/:id', withAuth, (req, res) => {
 })
 
 router.get('/dashboard/create', withAuth, (req, res) => {
-  res.render('add-post')
+  res.render('addPost')
 });
 
 
@@ -124,7 +124,7 @@ router.get('/post/:id', withAuth, (req, res) => {
         return;
       }
       const info = dbPostData.get({ plain: true });
-      res.render('single-post', {
+      res.render('singlePost', {
         info,
         loggedIn: req.session.loggedIn
       });

@@ -1,6 +1,6 @@
 async function updatePost() {
-  const title = document.querySelector('#textBox1').value.trim();
-  const comment = document.querySelector('#textBox2').value.trim();
+  const title = document.querySelector('#postTitleField').value.trim();
+  const comment = document.querySelector('#postContentField').value.trim();
   const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1];
   if (title && comment) {

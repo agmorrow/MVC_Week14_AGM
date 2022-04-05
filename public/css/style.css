@@ -253,14 +253,6 @@ body {
   text-decoration: none;
 }
 
-.list-scroll{
-  height:320px;
-  overflow:scroll;
-  overflow-x:hidden;
-  margin-bottom: 5px;
-  border-bottom: 3px solid var(--secondary);
-}
-
 .list-title{
   color: var(--secondary);
   border-bottom:3px solid var(--secondary);

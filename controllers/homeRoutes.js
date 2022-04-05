@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// Get's login data
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -46,7 +46,7 @@ router.get('/signup', (req, res) => {
 
   res.render('signup')
 });
-
+// Gets data for the dashboard
 router.get('/dashboard', auth, (req, res) => {
 
   Post.findAll({
@@ -56,7 +56,6 @@ router.get('/dashboard', auth, (req, res) => {
       attributes: [
         'id',
         'title',
-
       ]
     })
     .then(dbPostData => {
@@ -72,7 +71,7 @@ router.get('/dashboard', auth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// Pulling updated post data
 router.get('/dashboard/post-update/:id', auth, (req, res) => {
   Post.findOne({
       where: {
@@ -99,7 +98,7 @@ router.get('/dashboard/create', auth, (req, res) => {
   res.render('addPost')
 });
 
-
+// Finds posts by id
 router.get('/post/:id', auth, (req, res) => {
   Post.findOne({
       where: {

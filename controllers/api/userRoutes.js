@@ -4,14 +4,13 @@ const {
   Post,
   Comment
 } = require('../../models');
-
+// Pulls user data
 router.get('/', (req, res) => {
   User.findAll({
       attributes: [
         'id',
         'username',
         'password',
-
       ]
     })
     .then(dbData => res.json(dbData))
@@ -20,7 +19,7 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// User by id
 router.get('/:id', (req, res) => {
   User.findOne({
       where: {
@@ -50,7 +49,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// Allows user to login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -84,6 +83,7 @@ router.post('/login', (req, res) => {
     });
   });
 });
+// Allows user to log out
 router.post('/logout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/dashboard');

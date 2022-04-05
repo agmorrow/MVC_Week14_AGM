@@ -1,3 +1,6 @@
+document.querySelector('#updateBtn').addEventListener('click', updatePost);
+document.querySelector('#deleteBtn').addEventListener('click', deletePost);
+// Allow user to update the post
 async function updatePost() {
   const title = document.querySelector('#postTitleField').value.trim();
   const comment = document.querySelector('#postContentField').value.trim();
@@ -21,11 +24,11 @@ async function updatePost() {
     }
   }
 };
-
+// Allows user to delete their post
 async function deletePost() {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1];
-
+// message to confirm if the user wants to delete the post
   confirm("Are you sure you want to delete this Post?")
   if (confirm) {
     await fetch(`/api/posts/${id}`, {
@@ -38,5 +41,3 @@ async function deletePost() {
   }
 };
 
-document.querySelector('#updateBtn').addEventListener('click', updatePost);
-document.querySelector('#deleteBtn').addEventListener('click', deletePost);

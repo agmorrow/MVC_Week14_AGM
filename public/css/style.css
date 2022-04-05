@@ -31,7 +31,6 @@ body {
   color: var(--blue)
 }
 
-
 #Title {
   font-family: 'Nunito Sans', sans-serif;
   color: #e9e9e9;
@@ -61,7 +60,6 @@ body {
   text-align: center;
   padding-top: 4%;
   font-family: 'Nunito Sans', sans-serif;
-
 }
 
 #welcomeMsg {
@@ -140,7 +138,6 @@ body {
 }
 
 .blog-card{
-  
   width: 90%;
   margin: 0 auto;
   margin-top: 1em;
@@ -159,14 +156,13 @@ body {
 .blog-card .title-content .user-date{
  font-style: italic;
  font-weight: 300;
- 
 }
 
 .blog-card .content{
   padding: .5em;
   border-radius: 8px;
-  
 }
+
 .blog-card .content .content-text{
   font-size: 24px;
   border-radius: 8px;

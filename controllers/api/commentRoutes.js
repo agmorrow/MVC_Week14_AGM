@@ -5,7 +5,7 @@ const {
   Comment
 } = require('../../models');
 
-
+// Gets all comments that are saved in database
 router.get('/', (req, res) => {
   Comment.findAll({
       attributes: [
@@ -31,10 +31,8 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-
-
 });
-
+// Finds comments by id
 router.get('/:id', (req, res) => {
   Comment.findOne({
       where: {
@@ -73,7 +71,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// Allows user to create a comment on a post
 router.post('/', (req, res) => {
   if (req.session) {
     Comment.create({
@@ -88,8 +86,7 @@ router.post('/', (req, res) => {
       });
   }
 });
-
-
+// allows user to delete a comment by id
 router.delete('/:id', (req, res) => {
   Comment.destroy({
       where: {

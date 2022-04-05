@@ -1,3 +1,5 @@
+document.querySelector('#addCommentBtn').addEventListener('click', commentSection);
+// Function for user to add comments to posts
 async function commentSection() {
   const comment_text = document.querySelector('#commentField').value.trim();
   const post_id = window.location.toString().split('/')[
@@ -22,5 +24,3 @@ async function commentSection() {
   }
 
 };
-
-document.querySelector('#addCommentBtn').addEventListener('click', commentSection);

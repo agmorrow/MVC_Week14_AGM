@@ -1,4 +1,5 @@
-// Create a post
+document.querySelector('#addPostBtn').addEventListener('click', createPost);
+// Create a new post
 async function createPost() {
   const title = document.querySelector('#postTitleField').value.trim();
   const comment = document.querySelector('#postContentField').value.trim();
@@ -22,4 +23,3 @@ async function createPost() {
   }
 };
 
-document.querySelector('#addPostBtn').addEventListener('click', createPost);

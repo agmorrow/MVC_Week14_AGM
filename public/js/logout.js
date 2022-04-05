@@ -1,3 +1,5 @@
+document.getElementById('logout').addEventListener('click', logout);
+// Log out function
 async function logout() {
   const response = await fetch('/api/users/logout', {
     method: 'post',
@@ -9,5 +11,3 @@ async function logout() {
     document.location.reload();
   }, 1000);
 }
-
-document.getElementById('logout').addEventListener('click', logout);

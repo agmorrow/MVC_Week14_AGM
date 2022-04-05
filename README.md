@@ -12,6 +12,7 @@ I was given a task to build a CMS-style blog site, where developers can publush 
 
 ## Link
 
+https://thetechblog-14-agm.herokuapp.com/
 
 ## Screenshot
 ![Screenshot 2022-04-05 151149](https://user-images.githubusercontent.com/82473623/161850027-3da53b37-3ee1-4552-a5e0-ef1c52bbe0d6.jpg)

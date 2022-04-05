@@ -13,7 +13,7 @@ const sessionSettings = {
 };
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({
 	helpers
 });
@@ -33,5 +33,9 @@ app.use(require('./controllers/'))
 sequelize.sync({
 	force: false
 }).then(() => {
-	app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+	// app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
+	app.listen(process.env.PORT || 3000, function(){
+		console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+	});
 });

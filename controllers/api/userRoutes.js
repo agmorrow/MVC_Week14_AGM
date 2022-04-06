@@ -49,6 +49,15 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
+});
+
 // Allows user to login
 router.post('/login', (req, res) => {
   User.findOne({

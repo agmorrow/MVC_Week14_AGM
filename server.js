@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars')
 const path = require('path');
 const session = require('express-session');
+const controllers = require('./controllers/index');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 
@@ -21,15 +22,12 @@ const hbs = exphbs.create({
 // configured handlebars as the view engine
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
-
+// somePath/public
 app.use(express.json());
-app.use(express.urlencoded({
-	extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sessionSettings));
-app.use(require('./controllers/'))
-
+app.use(controllers);
 sequelize.sync({
 	force: false
 }).then(() => {

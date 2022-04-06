@@ -50,13 +50,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('signup');
-});
 
 // Allows user to login
 router.post('/login', (req, res) => {

@@ -86,6 +86,8 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 // Creates a new post
 router.post('/', (req, res) => {
   Post.create({

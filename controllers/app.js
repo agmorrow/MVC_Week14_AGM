@@ -47,7 +47,7 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('../views/signup.handlebars', {});
+  res.render('signup');
 });
 // Gets data for the dashboard
 router.get('/dashboard', auth, (req, res) => {
